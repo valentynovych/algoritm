@@ -21,11 +21,10 @@ public class Tree {
     public static String sumCharRecursive(Tree tree) {
 
         String sumChars = tree.value + ", ";
-        //System.out.print(tree.value);
+
         if (tree.left != null) {
             sumChars += sumCharRecursive(tree.left);
         }
-        //System.out.println(tree.value);
 
         if (tree.right != null) {
             sumChars += sumCharRecursive(tree.right);
@@ -35,21 +34,23 @@ public class Tree {
 
     public static String traverseWith(Tree tree) {
         Queue<Tree> treeDeque = new ArrayDeque<>();
-        String sumChars = tree.value + ", ";
+        StringBuilder sumChars = new StringBuilder();
+
         treeDeque.add(tree);
 
         while (!treeDeque.isEmpty()) {
-            Tree node = treeDeque.poll();
+            Tree stock = treeDeque.poll();
 
-            if (node.left != null) {
-                treeDeque.add(node.left);
-                sumChars += node.left.value + ", ";
+            sumChars.append(stock.value).append(", ");
+
+            if (stock.left != null) {
+                treeDeque.add(stock.left);
             }
-            if (node.right != null) {
-                treeDeque.add(node.right);
-                sumChars += node.right.value + ", ";
+
+            if (stock.right != null) {
+                treeDeque.add(stock.right);
             }
         }
-        return sumChars;
+        return sumChars.toString();
     }
 }
