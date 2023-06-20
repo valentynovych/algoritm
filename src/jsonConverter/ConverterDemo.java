@@ -44,9 +44,9 @@ public class ConverterDemo {
         skills.add("Eating");
 
         children1.setSkills(skills);
-        languages.remove("French");
-        languages.remove("Deutch");
-        children1.setLanguagesSkill(languages);
+        Map<String, String> languagesChild = new HashMap<>();
+        languagesChild.put("English", "Elementary");
+        children1.setLanguagesSkill(languagesChild);
 
         List<Person> child = new LinkedList<>();
         child.add(children);
